@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">WeGoTo</string>
+    <string name="title_mapa">Mapa</string>
+    <string name="title_viagens">Viagens</string>
+    <string name="title_perfil">Perfil</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_register">Register</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="nome">Nome</string>
+    <string name="registrar">Registrar</string>
+    <string name="erro_conexao">Ocorreu algum problema, tente mais tarde.</string>
+    <string name="title_activity_viagem_add">Adicionar Viagem</string>
+    <string name="nome_grupo_viagem">Nome do Grupo de Viagem</string>
+    <string name="ponto_partida">Ponto de Partida</string>
+    <string name="partida_individual">Partida Individual</string>
+    <string name="partida_agrupada">Partida Agrupada</string>
+    <string name="de">De</string>
+    <string name="para">Para</string>
+    <string name="title_activity_adicionar_viagem">Adicionar Viagem</string>
+</resources>
