@@ -12,7 +12,7 @@ public class Viagem {
     private String groupName;
     private User userAdmin;
 
-    public Viagem(String name, String depLat, String depLon, String depMod, String depDate, String groupName, User userAdmin) {
+    public Viagem(String depLat, String depLon, String depMod, String depDate, String groupName, User userAdmin) {
         this.depLat = depLat;
         this.depLon = depLon;
         this.depMod = depMod;

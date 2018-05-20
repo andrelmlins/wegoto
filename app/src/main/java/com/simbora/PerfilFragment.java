@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -40,7 +41,15 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
 
         this.btnSair= this.rootView.findViewById(R.id.sair);
         this.btnSair.setOnClickListener(this);
-        Log.e("a","sd");
+
+        SharedPreferences settings = getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
+
+        TextView nome = this.rootView.findViewById(R.id.nome);
+        TextView email = this.rootView.findViewById(R.id.email);
+
+        nome.setText(settings.getString("name",""));
+        email.setText(settings.getString("email",""));
+
         return this.rootView;
     }
 

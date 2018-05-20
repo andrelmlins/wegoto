@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -115,7 +116,7 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, View.O
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {
+        if (requestCode == 1 && data.getStringExtra("address")!=null) {
             this.paraEdit.setText(data.getStringExtra("address"));
             this.latlng = new LatLng(Float.parseFloat(data.getStringExtra("lat")),Float.parseFloat(data.getStringExtra("lng")));
             this.googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(this.latlng, 7));
@@ -125,16 +126,17 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, View.O
     @Override
     public void onClick(View view) {
         if(R.id.btnViajar==view.getId()){
-            if(){
-
+            if(this.latlng==null || this.quandoEdit.getText().equals("")){
+                Toast.makeText(getActivity(),"Informe os outros campos antes",Toast.LENGTH_SHORT).show();
+            } else {
+                Intent intent = new Intent(getActivity(), AdicionarViagem.class);
+                Bundle b = new Bundle();
+                b.putSerializable("lat",this.latlng.latitude);
+                b.putSerializable("lng",this.latlng.longitude);
+                b.putSerializable("data",this.quandoEdit.getText()+"");
+                intent.putExtras(b);
+                startActivity(intent);
             }
-            Intent intent = new Intent(getActivity(), AdicionarViagem.class);
-            Bundle b = new Bundle();
-            b.putSerializable("lat",this.latlng.latitude);
-            b.putSerializable("lng",this.latlng.longitude);
-            b.putSerializable("data",this.quandoEdit.getText()+"");
-            intent.putExtras(b);
-            startActivity(intent);
         } else if(R.id.btnPara==view.getId()){
             Intent intent = new Intent(getActivity(), AutoComplete.class);
             startActivityForResult(intent, 1);
